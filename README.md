@@ -1,56 +1,46 @@
+<a href="https://interfaces.dev/">
+  <img width="320" height="168" alt="interfaces.dev" src="https://ho1jr3x2dcwdu3t5.public.blob.vercel-storage.com/interfaces-og-image.png" />
+</a>
+
 # Skills
 
 [![skills.sh](https://skills.sh/b/jakubkrehel/skills)](https://skills.sh/jakubkrehel/skills)
 
-[Agent Skills](https://docs.anthropic.com/en/docs/claude-code/skills) for design engineering — typography, interface polish and color. They teach AI coding assistants (Claude Code, Codex, Cursor and others) the details that compound into a great interface.
+Agent skills for design engineering — typography, interface polish and color.
 
-Each skill is distilled from my own writing and tools, so the agent applies the same decisions I would make by hand.
+They are available for Claude Code, Codex, Cursor Agent and many more.
 
 ## Install
 
 ```bash
-npx skills@latest add jakubkrehel/skills
+npx skills add jakubkrehel/skills
 ```
 
 Or install a single skill:
 
 ```bash
-npx skills@latest add jakubkrehel/skills --skill great-typography
+npx skills add jakubkrehel/skills --skill great-typography
 ```
 
 ## The skills
 
 ### great-typography
 
-How to choose and work with type on the web, from picking a typeface to the finishing details. Based on [Typography manual for the web](https://jakub.kr/writing/typography-manual-for-the-web) and [Working with type](https://jakub.kr/writing/working-with-type). It deliberately stays out of how fonts are loaded.
+An agent skill for typography on the web, from choosing a typeface to the finishing details. Based on [Typography manual for the web](https://jakub.kr/writing/typography-manual-for-the-web) and [Working with type](https://jakub.kr/writing/working-with-type).
 
-- Choosing and pairing typefaces, font formats (`.woff2` on the web)
-- Variable fonts, axes, `font-synthesis` and OpenType features (`tnum`, `zero`, `liga`, stylistic sets)
-- Type scales with semantic names; line-height, letter-spacing and text trimming with `text-box`
-- Measure, wrapping (`text-wrap: balance` / `pretty`) and truncation
-- Smart punctuation, internationalization, underlines, selection, placeholders and carets
-- iOS input zoom workarounds, WCAG contrast, font smoothing
-- A cheat sheet of every typography CSS property covered
+It helps with picking and pairing fonts, variable fonts and OpenType features, type scales, spacing, wrapping, truncation, underlines and accessibility. After installation, run `/great-typography` to get started.
 
 ### great-interfaces
 
-The small design engineering details that make interfaces feel polished. Based on [Details that make interfaces feel better](https://jakub.kr/writing/details-that-make-interfaces-feel-better).
+An agent skill focused on the small details that make interfaces feel better. Based on [interfaces.dev](https://interfaces.dev/).
 
-- Text wrapping, concentric border radius, optical vs geometric alignment
-- Contextual icon animations with opacity, scale and blur
-- Interruptible animations, enter animations with split and stagger, subtle exits
-- Font smoothing on macOS, tabular numbers for dynamic values
-- Shadows instead of borders, image outlines for depth
+The skill helps with a lot of aspects of UI such as animations, typography, hover states, optical alignment, concentric border radius, using shadows and much more. After installation, run `/great-interfaces` to get started.
 
 ### oklch-colors
 
-Working with the OKLCH color space in web projects — the perceptually uniform color space that eliminates hue drift, makes palette generation predictable and simplifies accessibility fixes. Based on [oklch.fyi](https://oklch.fyi).
+An agent skill for working with the OKLCH color space. Based on [oklch.fyi](https://oklch.fyi/).
 
-- Converting hex, rgb and hsl to oklch
-- Generating perceptually uniform palette scales (50–950) and dark mode via lightness
-- WCAG 2 and APCA contrast checking, hue drift detection in HSL-based palettes
-- sRGB and Display P3 gamut boundaries with CSS fallback patterns
-- Tailwind v4 oklch theming and custom tokens
+You can pick from multiple actions including converting colors, generating palettes, checking contrast, gamut clamping, setting up fallbacks and more. After installation, run `/oklch-colors` to get started.
 
 ## License
 
