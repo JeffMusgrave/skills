@@ -1,0 +1,45 @@
+# Choosing fonts
+
+Choosing a typeface, the right file format and understanding why fonts look the way they do.
+
+## Choosing a typeface
+
+Font families set the tone before the specific font does.
+
+| Category | Traits | Use for |
+| --- | --- | --- |
+| Serif | Small strokes at the ends of letters guide the eye along a line | Long passages, editorial reading |
+| Sans-serif | Clean, even shapes that stay crisp at small sizes | Default for most interfaces (Helvetica, Inter, Geist) |
+| Monospace | Every glyph the same width so columns line up | Code, tables, tabular data |
+| Display | Drawn for large headlines | Marketing headlines, hero text |
+| Script | Mimics handwriting | Rare, decorative moments |
+
+CSS exposes `cursive` and `fantasy` keywords for the last two categories.
+
+"Display" in a font's name does not make it a display font. Fonts like SF Pro and Heldane ship a `Display` variant for large sizes and a `Text` variant for smaller sizes. Use the variant that matches the size you are setting.
+
+### Rules
+
+- Fewer fonts is usually better. Rarely use more than three. Marketing pages can be more expressive than apps.
+- The same applies to sizes and weights. They define hierarchy, but overusing them hurts readability quickly.
+- Pair for contrast, not similarity. A serif headline with a sans body looks like a deliberate display/reading split. Two near-identical sans-serifs look like a mistake.
+
+## Formats
+
+| Format | Notes |
+| --- | --- |
+| `.woff2` | Brotli compression, broadly supported. Use this on the web. |
+| `.woff` | Older compression. Fallback only for very old browsers. |
+| `.ttf` / `.otf` | Raw formats, no web compression, larger files. Desktop only unless there is no other option. |
+
+## Anatomy of a typeface
+
+| Term | Meaning |
+| --- | --- |
+| x-height | Height of a lowercase `x` |
+| Cap height | Height of uppercase letters |
+| Baseline | The invisible line letters sit on |
+| Ascender | Part of a letter rising above the x-height |
+| Descender | Part dropping below the baseline |
+
+These measurements are why two fonts at the same `font-size` can look like different sizes. A font with a large x-height looks bigger.
