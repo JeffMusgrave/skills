@@ -58,10 +58,6 @@ For solo projects the default names work fine as long as there are clear rules f
 
 Prefer unitless values: they scale with the font size, fixed values like `line-height: 24px` do not. Tailwind's `leading-snug`, `leading-normal` and `leading-relaxed` are sensible defaults that rarely need overriding.
 
-## Word-spacing
-
-`word-spacing` changes the space between words. Small adjustments can help display text; body copy rarely needs it.
-
 ## Text trimming with text-box
 
 Fonts reserve space above and below the letters, which is why text sits slightly too low in buttons and badges. `text-box` trims it. Two parts: which edges to trim (`trim-both`, `trim-start`, `trim-end`) and where:

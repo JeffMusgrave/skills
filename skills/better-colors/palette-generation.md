@@ -88,6 +88,6 @@ This works because oklch's perceptual uniformity means equal L steps in both dir
 
 ## Why not HSL palettes?
 
-**Hue drift:** `hsl(240, 80%, 20%)` and `hsl(240, 80%, 90%)` are not the same perceptual hue. The light variant shifts ~18° toward purple. OKLCH hue is stable.
+**Hue drift:** `hsl(240, 80%, 20%)` and `hsl(240, 80%, 90%)` are not the same perceptual hue. The light variant shifts ~16° toward purple. OKLCH hue is stable.
 
 **Brightness inconsistency:** `hsl(60, 100%, 50%)` (yellow) and `hsl(240, 100%, 50%)` (blue) have the same HSL lightness but wildly different perceived brightness.

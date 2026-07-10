@@ -12,7 +12,7 @@ One-line lookup for every typography CSS declaration covered by this skill, with
 | `font-size` | Size from the type scale | `text-*` |
 | `font-weight` | Any value from 1 to 1000 | `font-*` |
 | `font-style: italic` | Switch to italic style | `italic` |
-| `-webkit-font-smoothing` | Smooth the font rendering | `antialiased` |
+| `-webkit-font-smoothing` + `-moz-osx-font-smoothing` | Smooth macOS font rendering | `antialiased` |
 | `font-synthesis: none` | No faux bold or italic | `[font-synthesis:none]` |
 | `font-feature-settings` | Toggle OpenType features | `[font-feature-settings:"ss01"]` |
 | `font-variation-settings` | Tune variable font axes | `[font-variation-settings:"GRAD"_80]` |
@@ -27,11 +27,10 @@ One-line lookup for every typography CSS declaration covered by this skill, with
 | Declaration | What it does | Tailwind |
 | --- | --- | --- |
 | `letter-spacing` | Space between letters | `tracking-*` |
-| `word-spacing` | Space between words | `[word-spacing:2px]` |
 | `line-height` | Space between lines | `leading-*` |
 | `font-kerning` | Kerning on or off | `[font-kerning:none]` |
 | `text-box: trim-both` | Trim space above and below | `[text-box:trim-both_cap_alphabetic]` |
-| `max-width: 65ch` | Comfortable line length | `max-w-prose` |
+| `max-width` on text columns | Cap at ~60–75 characters per line | `max-w-xl` / `max-w-2xl` / `max-w-[65ch]` |
 | `text-align` | Where lines start and end | `text-start` / `text-center` |
 
 ## Wrapping and overflow
@@ -54,6 +53,7 @@ One-line lookup for every typography CSS declaration covered by this skill, with
 | `text-decoration-color` | Underline color | `decoration-*` |
 | `text-decoration-thickness` | Underline thickness | `decoration-1` / `decoration-2` |
 | `text-underline-offset` | Push the line down | `underline-offset-*` |
+| `text-underline-position: from-font` | Underline position from the font | `[text-underline-position:from-font]` |
 | `text-decoration-style` | Dotted, dashed or wavy | `decoration-dotted` / `decoration-wavy` |
 | `text-decoration-thickness: from-font` | Underline set by the font | `decoration-from-font` |
 | `text-decoration-skip-ink` | Gaps around descenders | `[text-decoration-skip-ink:auto]` |
@@ -61,3 +61,5 @@ One-line lookup for every typography CSS declaration covered by this skill, with
 | `user-select: none` | Stop text selection | `select-none` |
 | `text-shadow` | Shadow behind the letters | `text-shadow-*` |
 | `-webkit-text-stroke` | Outline the letters | `[-webkit-text-stroke:1px_black]` |
+| `background-clip: text` | Clip a background to the letters | `bg-clip-text` |
+| `initial-letter` | Size a drop cap | `[initial-letter:3]` |

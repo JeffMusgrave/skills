@@ -4,17 +4,9 @@ Where lines start, where they end, where they break and which characters they us
 
 ## Measure (line length)
 
-Long lines make it harder for the eye to find the start of the next line. For long-form text, keep lines between `60ch` and `75ch`. One `ch` is the width of the `0` character in the current font, so `65ch` is roughly 65 characters per line.
+Long lines make it harder for the eye to find the start of the next line. For long-form text, aim for 60–75 characters per line.
 
-```tsx
-// Good: scales with the font
-<p className="max-w-prose">Text</p>
-
-// Bad: fixed width ignores the font
-<p className="max-w-[592px]">Text</p>
-```
-
-Tailwind's `max-w-prose` equals `65ch`, which at a `16px` body size lands around `620px` depending on the font.
+Any unit works. `65ch` measures characters directly (one `ch` is the width of the `0` in the current font), but a pixel or rem cap is just as good: at a `16px` body size the 60–75 character range lands roughly between `560px` and `680px` depending on the font, so Tailwind's `max-w-xl` (`576px`) or `max-w-2xl` (`672px`) fit. What matters is that a cap exists and the resulting line length sits in range — recheck it if the body font size changes.
 
 ## Alignment
 
@@ -29,7 +21,7 @@ Tailwind's `max-w-prose` equals `65ch`, which at a `16px` body size lands around
 | `overflow-wrap: break-word` | Lets long words, links and IDs break before escaping the container |
 | `white-space: nowrap` | Keeps labels and badges on one line where a break looks broken |
 
-Use `balance` on headings and `pretty` on descriptions; combined they give the best outcome. In long-form text avoid forcing wrapping for the most part, it is not the most effective use of space.
+Use `balance` on headings and `pretty` on descriptions; combined they give the best outcome. Skip both in long-form text: `balance` is silently ignored past six lines in Chromium (ten in Firefox), and on long text neither earns its layout cost.
 
 ## Truncation
 

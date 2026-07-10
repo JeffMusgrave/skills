@@ -52,11 +52,11 @@ Large headings often look better with slightly negative letter-spacing. Small up
 
 ### 8. Cap the Measure
 
-Long lines make it hard for the eye to find the next line. Keep long-form text between `60ch` and `75ch`. Tailwind's `max-w-prose` equals `65ch` and is a sensible default. Never cap with a fixed pixel width like `592px`.
+Long lines make it hard for the eye to find the next line. Cap long-form text around 60–75 characters per line. Any unit works: `65ch` measures characters directly, and a pixel or rem cap is just as good — at a `16px` body size the range lands roughly between `560px` and `680px` depending on the font, so Tailwind's `max-w-xl` or `max-w-2xl` fit. What matters is that a cap exists and the resulting line length sits in range.
 
 ### 9. Wrap Deliberately
 
-`text-wrap: balance` distributes text evenly across lines: use it on headings. `text-wrap: pretty` avoids leaving a single short word on the final line: use it on descriptions. In long-form text avoid forcing wrapping, it is not the most effective use of space. `overflow-wrap: break-word` where long words, links or IDs could escape the container. `white-space: nowrap` on labels and badges where a line break looks broken.
+`text-wrap: balance` distributes text evenly across lines: use it on headings. `text-wrap: pretty` avoids leaving a single short word on the final line: use it on descriptions. Skip both in long-form text: `balance` is silently ignored past six lines in Chromium (ten in Firefox), and neither earns its layout cost there. `overflow-wrap: break-word` where long words, links or IDs could escape the container. `white-space: nowrap` on labels and badges where a line break looks broken.
 
 ### 10. Tabular Numbers on Changing Values
 
@@ -72,19 +72,19 @@ Store text in natural case and control presentation with `text-transform`, so re
 
 ### 13. Underlines from the Font
 
-Default underlines sit wherever the browser decides. Pull position and thickness from the font's own metrics with `text-underline-position: from-font` and `text-decoration-thickness: from-font`, or tune manually with `text-decoration-thickness`, `text-underline-offset` and `text-decoration-skip-ink`. `text-decoration-style` draws the line dotted, dashed or wavy; a dotted underline is a common hint that a word carries extra information, like an abbreviation or a defined term. Only `text-decoration-color` animates; to animate anything else, fake the underline with a separate element.
+Default underlines sit wherever the browser decides. Pull position and thickness from the font's own metrics with `text-underline-position: from-font` and `text-decoration-thickness: from-font`, or tune manually with `text-decoration-thickness`, `text-underline-offset` and `text-decoration-skip-ink`. `text-decoration-style` draws the line dotted, dashed or wavy; a dotted underline is a common hint that a word carries extra information, like an abbreviation or a defined term. Unless the only thing animating is a color change, build the underline as a separate element instead of using `text-decoration` — color is the only part of a real underline that animates reliably.
 
 ### 14. Inputs at 16px on Mobile
 
-iOS Safari zooms the whole page when an input's text is smaller than `16px`. Keep input text at `16px` on mobile viewports (`text-base sm:text-sm`). Reserve the `maximum-scale=1` viewport meta for temporary-state pages like login, because other browsers respect the cap and restrict pinch zoom.
+iOS Safari zooms the whole page when an input's text is smaller than `16px`. Keep input text at `16px` on mobile viewports (`text-base sm:text-sm`). Avoid the `maximum-scale=1` viewport meta: Safari ignores it for pinch zoom, but every other browser honors it and blocks zooming, which fails WCAG.
 
 ### 15. Size and Contrast Floors
 
-Body text `16px` (the web default and the right reading size). UI text can go smaller: `14px` for inputs and menus, `13px` for captions, rarely below `12px`. WCAG AA: `4.5:1` contrast for regular text, `3:1` for large text (roughly `24px` and up).
+Body text `16px` (the web default and the right reading size). UI text can go smaller: `14px` for inputs and menus (inputs still need `16px` on mobile, see principle 14), `13px` for captions, rarely below `12px`. WCAG AA: `4.5:1` contrast for regular text, `3:1` for large text (roughly `24px` and up).
 
 ### 16. Font Smoothing on the Root
 
-On macOS text renders heavier than intended. Apply `-webkit-font-smoothing: antialiased` (Tailwind `antialiased`) once on the root layout so it covers all text.
+On macOS text renders heavier than intended. Apply `-webkit-font-smoothing: antialiased` and `-moz-osx-font-smoothing: grayscale` (both covered by Tailwind's `antialiased`) once on the root layout so they cover all text.
 
 ### 17. Logical Properties for Direction
 
@@ -93,22 +93,6 @@ To support right-to-left content, use direction-agnostic properties: `margin-inl
 ### 18. Style the Selection, Disable It Where It Distracts
 
 `::selection` is a subtle way to embed brand in the reading experience; keep the combination legible. Use `user-select: none` on button labels where copying is unlikely and selection feels distracting, and make sure `cmd+A` only grabs text the user expects to copy. In cross-platform apps that feel closer to native, disable selection for the interface and keep it only on content worth copying.
-
-## Key Values
-
-| Rule | Value |
-| --- | --- |
-| Web font format | `.woff2`, `.woff` fallback only for very old browsers |
-| Max fonts per product | Rarely more than 3 |
-| Heading line-height | ~`1.1` |
-| Body line-height | `1.5`–`1.6` |
-| Measure (long-form) | `60ch`–`75ch` (`max-w-prose` = `65ch`) |
-| Body text size | `16px` |
-| UI text size | `14px` inputs and menus, `13px` captions, floor `12px` |
-| iOS input zoom threshold | Text below `16px` triggers zoom |
-| WCAG AA contrast | `4.5:1` regular text, `3:1` large text (~`24px`+) |
-| Common variable axes | `wght`, `opsz`, `wdth`, `slnt` |
-| Common OpenType features | `tnum`, `zero`, `liga`, `ss01`, `cv11` |
 
 ## Review Output Format
 
@@ -125,8 +109,8 @@ Always present changes as a markdown table with **Before** and **After** columns
 #### Line-height and measure
 | Before | After |
 | --- | --- |
-| `leading-none` on body paragraph | `leading-relaxed` (body needs `1.5`–`1.6`) |
-| `max-w-[592px]` on article column | `max-w-prose` |
+| `leading-none` on body paragraph | `leading-normal` (body needs `1.5`–`1.6`) |
+| Full-width article column | `max-w-2xl` (~65 characters per line at `16px`) |
 
 Rows should cite the specific file and property when it is not obvious from the snippet. If a principle was reviewed but nothing needed to change, omit that table entirely.
 
@@ -140,7 +124,7 @@ Rows should cite the specific file and property when it is not obvious from the 
 | Browser-faked bold or italic | Load the file, set `font-synthesis: none` |
 | Hard-coded one-off font sizes | Use the type scale |
 | `line-height: 24px` on scalable text | Unitless value (`1.5`) |
-| Full-width paragraphs | Cap at `60ch`–`75ch` |
+| Full-width paragraphs | Cap around 60–75 characters per line |
 | Orphan on the last line of a paragraph | `text-wrap: pretty` |
 | Lopsided two-line heading | `text-wrap: balance` |
 | Numbers cause layout shift | `tabular-nums` |
@@ -162,18 +146,17 @@ Rows should cite the specific file and property when it is not obvious from the 
 - [ ] Sizes come from the type scale, no one-off values
 - [ ] Headings ~`1.1` line-height, body `1.5`–`1.6`, unitless
 - [ ] Large headings have slightly negative tracking, small uppercase labels positive
-- [ ] Long-form text capped at `60ch`–`75ch`
+- [ ] Long-form text capped around 60–75 characters per line
 - [ ] Headings use `text-wrap: balance`, body uses `text-wrap: pretty`
 - [ ] Changing numbers use `tabular-nums`
 - [ ] Truncated content is reachable in full somewhere
 - [ ] Copy stored in natural case, presentation via `text-transform`
 - [ ] Underlines use `from-font` or tuned thickness, offset and skip-ink
-- [ ] Text is truncated or clamped instead of overflowing
 - [ ] Inputs are `16px`+ on mobile viewports
 - [ ] Text sizes and contrast meet the floors (`16px` body, `4.5:1` / `3:1`)
 - [ ] `antialiased` applied once on the root layout
 - [ ] Directional properties are logical (`inline-start`, `start`)
-- [ ] `::selection` is styled on brand and stays legible
+- [ ] Any styled `::selection` stays legible
 
 ## Reference Files
 

@@ -37,7 +37,7 @@ a:hover {
 }
 ```
 
-Color is about the only animatable part of a real underline. To animate anything else, fake the underline with a custom element and animate that.
+Unless the only thing animating is a color change, build the underline as a custom element instead of using `text-decoration` — color is the only part of a real underline that animates reliably. Animate the custom element however the effect requires.
 
 ## Selection
 
@@ -61,16 +61,7 @@ Focusing an input with text smaller than `16px` zooms the whole page (an accessi
 <input className="text-base sm:text-sm" type="email" />
 ```
 
-The viewport-level alternative prevents the zoom entirely:
-
-```html
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, maximum-scale=1"
-/>
-```
-
-Safari ignores the cap for pinch zoom, but every other browser respects it and restricts pinch zoom. Best strategy is a mix: the `<meta>` approach only on temporary-state pages like login, media queries everywhere else. For zero accessibility implications, use the responsive input text size alone.
+Avoid the `maximum-scale=1` viewport meta as a fix: Safari ignores the cap for pinch zoom, but every other browser honors it and restricts pinch zoom, which fails WCAG 1.4.4. The responsive input size solves the zoom with no accessibility cost.
 
 ## Decorative text
 
@@ -107,7 +98,14 @@ Bigger, heavier letters stay legible at lower contrast.
 
 ## Font smoothing
 
-On macOS text renders heavier than intended. Apply `-webkit-font-smoothing: antialiased` once on the root layout so it covers all text:
+On macOS text renders heavier than intended. Apply font smoothing once on the root layout so it covers all text. Tailwind's `antialiased` sets both properties:
+
+```css
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+```
 
 ```tsx
 <html lang="en">
