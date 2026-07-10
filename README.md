@@ -32,7 +32,7 @@ How to choose and work with type on the web, from picking a typeface to the fini
 - iOS input zoom workarounds, WCAG contrast, font smoothing
 - A cheat sheet of every typography CSS property covered
 
-### make-interfaces-feel-better
+### great-interfaces
 
 The small design engineering details that make interfaces feel polished. Based on [Details that make interfaces feel better](https://jakub.kr/writing/details-that-make-interfaces-feel-better).
 
@@ -42,7 +42,7 @@ The small design engineering details that make interfaces feel polished. Based o
 - Font smoothing on macOS, tabular numbers for dynamic values
 - Shadows instead of borders, image outlines for depth
 
-### oklch-skill
+### oklch-colors
 
 Working with the OKLCH color space in web projects — the perceptually uniform color space that eliminates hue drift, makes palette generation predictable and simplifies accessibility fixes. Based on [oklch.fyi](https://oklch.fyi).
 
