@@ -21,7 +21,7 @@ Any unit works. `65ch` measures characters directly (one `ch` is the width of th
 | `overflow-wrap: break-word` | Lets long words, links and IDs break before escaping the container |
 | `white-space: nowrap` | Keeps labels and badges on one line where a break looks broken |
 
-Use `balance` on headings and `pretty` on descriptions; combined they give the best outcome. Skip both in long-form text: `balance` is silently ignored past six lines in Chromium (ten in Firefox), and on long text neither earns its layout cost.
+Use `balance` on headings and `pretty` on descriptions; combined they give the best outcome. Skip both in long-form text: browsers ignore `balance` past a few lines anyway, and evening out a whole paragraph wastes space and makes it harder to read.
 
 ## Truncation
 

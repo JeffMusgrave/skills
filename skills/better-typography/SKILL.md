@@ -56,7 +56,7 @@ Long lines make it hard for the eye to find the next line. Cap long-form text ar
 
 ### 9. Wrap Deliberately
 
-`text-wrap: balance` distributes text evenly across lines: use it on headings. `text-wrap: pretty` avoids leaving a single short word on the final line: use it on descriptions. Skip both in long-form text: `balance` is silently ignored past six lines in Chromium (ten in Firefox), and neither earns its layout cost there. `overflow-wrap: break-word` where long words, links or IDs could escape the container. `white-space: nowrap` on labels and badges where a line break looks broken.
+`text-wrap: balance` distributes text evenly across lines: use it on headings. `text-wrap: pretty` avoids leaving a single short word on the final line: use it on descriptions. Skip both in long-form text: browsers ignore `balance` past a few lines anyway, and evening out a whole paragraph wastes space and makes it harder to read. `overflow-wrap: break-word` where long words, links or IDs could escape the container. `white-space: nowrap` on labels and badges where a line break looks broken.
 
 ### 10. Tabular Numbers on Changing Values
 
