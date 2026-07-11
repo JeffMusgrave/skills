@@ -80,7 +80,7 @@ Only for `transform`, `opacity`, `filter` — properties the GPU can composite. 
 
 ### 16. Minimum Hit Area
 
-Interactive elements should prefer a 44×44px hit area for touch or mobile contexts. In desktop interfaces, use at least 40×40px. Extend with a pseudo-element if the visible element is smaller. Never let hit areas of two elements overlap.
+Interactive elements need a 44×44px hit area for touch or mobile contexts. In desktop interfaces, use at least 40×40px. Extend with a pseudo-element if the visible element is smaller. Never let hit areas of two elements overlap.
 
 ## Common Mistakes
 

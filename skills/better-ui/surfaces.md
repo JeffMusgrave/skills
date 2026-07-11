@@ -220,7 +220,7 @@ Use `outline-black/10` and `outline-white/10` specifically — not `outline-slat
 
 ## Minimum Hit Area
 
-Interactive elements should prefer a 44×44px hit area for touch or mobile contexts. In desktop interfaces, use at least 40×40px. If the visible element is smaller (e.g., a 20×20 checkbox), extend the hit area with a pseudo-element.
+Interactive elements need a 44×44px hit area for touch or mobile contexts. In desktop interfaces, use at least 40×40px. If the visible element is smaller (e.g., a 20×20 checkbox), extend the hit area with a pseudo-element.
 
 ### CSS Example
 
