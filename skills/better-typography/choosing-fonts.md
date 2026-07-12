@@ -24,6 +24,24 @@ CSS exposes `cursive` and `fantasy` keywords for the last two categories.
 - The same applies to sizes and weights. They define hierarchy, but overusing them hurts readability quickly.
 - Pair for contrast, not similarity. A serif headline with a sans body looks like a deliberate display/reading split. Two near-identical sans-serifs look like a mistake.
 
+## Font family scope
+
+Applying or reviewing typography never requires a new typeface. Use the product's existing type system unless the task explicitly asks for a type change, and do not introduce a paid or proprietary face just to satisfy a review checklist. Rendering details like font smoothing, text wrapping and tabular numbers do not override the project's chosen font family.
+
+When a type change is asked for: a system-native macOS/iOS feel comes from the system stack; a commercial face such as Helvetica Now is a brand decision and keeps a practical fallback stack.
+
+```css
+/* System-native macOS/iOS feel */
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Commercial brand face with safe fallbacks */
+html {
+  font-family: "Helvetica Now", "Helvetica Neue", Arial, sans-serif;
+}
+```
+
 ## Formats
 
 | Format | Notes |
