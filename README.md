@@ -4,7 +4,7 @@
 
 [![skills.sh](https://skills.sh/b/jakubkrehel/skills)](https://skills.sh/jakubkrehel/skills)
 
-A set of agent skills that help with building great products from animations and typography to layout, colors and more.
+A set of agent skills that help improve different parts of a product, from animations and typography to layout and colors.
 
 ## Install
 
