@@ -1,6 +1,6 @@
 {
   "name": "interfaces",
-  "description": "Agent skills for building and understanding product interfaces and code, from visual explanations to typography, accessibility, and UX writing.",
+  "description": "Agent skills for product interfaces, visual explanations, and portable Code Policy workflows.",
   "owner": {
     "name": "Jakub Krehel",
     "email": "jakub@kbo.sk"
@@ -9,7 +9,7 @@
     {
       "name": "interfaces",
       "source": "./",
-      "description": "Skills for building and understanding product interfaces and code: visual explanations, typography, colors, layout, accessibility, UI polish, and writing."
+      "description": "Skills for product interfaces, visual explanations, and portable Code Policy workflows."
     }
   ]
 }
