@@ -4,7 +4,7 @@
 
 [![skills.sh](https://skills.sh/b/jakubkrehel/skills)](https://skills.sh/jakubkrehel/skills)
 
-A collection of agent skills that help with various parts of building a great interface. From animation and UI polish to accessibility and product writing.
+A collection of agent skills for building and understanding great product interfaces and code. From animation and UI polish to accessibility, product writing and concise visual explanations.
 
 ## Skills
 
@@ -16,6 +16,7 @@ A collection of agent skills that help with various parts of building a great in
 - [**better-accessibility**](skills/better-accessibility/SKILL.md): Focus states, keyboard support, ARIA, forms, screen readers, hit areas and motion.
 - [**better-layout**](skills/better-layout/SKILL.md): Layout structure, grouping, alignment, reading order, progressive disclosure and adaptive breakpoints.
 - [**better-writing**](skills/better-writing/SKILL.md): UX writing and interface copy, from button labels to errors, settings and empty states.
+- [**show-me**](skills/show-me/SKILL.md): A user-invoked visual explanation of code, UI structure, control flow or the current topic. Forked from [HumanLayer's MIT-licensed skill](https://github.com/humanlayer/skills/tree/4d8d644ca747517973f58d7953f58d7cd07520cd/plugins/show-me/skills/show-me).
 
 ## Install
 
@@ -42,7 +43,7 @@ npx skills add jakubkrehel/skills --skill '*'
 
 ## Use
 
-Two skills are invoked by name. Use `better-interface` to review a screen, flow or feature, and `interface-review` to review what you changed: your uncommitted work, the current branch or a pull request.
+Three skills are invoked by name. Use `better-interface` to review a screen, flow or feature, `interface-review` to review what you changed, and `show-me` to replace dense prose with a compact visual explanation.
 
 The default review mode is `full`. Pass `quick` for a shorter review. For `better-interface`, add the screen, flow or feature after the mode. For `interface-review`, add the target after the mode; leave it off and it detects the branch or your uncommitted changes.
 
@@ -54,6 +55,7 @@ In Claude Code, as a plugin. Plugin skills are namespaced, so every skill is pre
 /interfaces:better-interface full checkout flow
 /interfaces:interface-review
 /interfaces:interface-review quick pr 482
+/interfaces:show-me current request flow
 ```
 
 In Claude Code, installed with the skills CLI:
@@ -64,6 +66,7 @@ In Claude Code, installed with the skills CLI:
 /better-interface full checkout flow
 /interface-review
 /interface-review quick pr 482
+/show-me current request flow
 ```
 
 In Codex:
@@ -74,6 +77,7 @@ $better-interface quick
 $better-interface full checkout flow
 $interface-review
 $interface-review quick pr 482
+$show-me current request flow
 ```
 
 The prefix only affects skills you invoke by name. The six domain skills are picked up automatically from context either way.

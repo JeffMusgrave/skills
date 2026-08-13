@@ -16,7 +16,7 @@ Each skill lives in `skills/<skill-name>/`:
 - Supporting `.md` reference files are optional; single-file skills are fine. Add one only when it carries depth beyond the principle statements (recipes, code patterns, lookup tables), not to restate SKILL.md in longer form. Link via relative paths from the Quick Reference table.
 - Each rule lives in exactly one skill; other skills point to it by skill name in backticks (e.g. `better-layout`), never via cross-skill relative links.
 
-Current skills: `better-interface` (user-invoked cross-discipline review), `interface-review` (user-invoked change-scoped review), `better-ui` (interface polish details), `better-typography` (web typography), `better-colors` (OKLCH color space and color usage), `better-accessibility` (accessibility engineering), `better-layout` (layout structure), `better-writing` (UX writing and interface copy).
+Current skills: `better-interface` (user-invoked cross-discipline review), `interface-review` (user-invoked change-scoped review), `show-me` (user-invoked visual explanation), `better-ui` (interface polish details), `better-typography` (web typography), `better-colors` (OKLCH color space and color usage), `better-accessibility` (accessibility engineering), `better-layout` (layout structure), `better-writing` (UX writing and interface copy).
 
 ### Rule ownership
 
@@ -24,6 +24,7 @@ Current skills: `better-interface` (user-invoked cross-discipline review), `inte
 | --- | --- |
 | `better-interface` | Review orchestration, mode parsing, project convention discovery, shared severity and its escalation triggers, consolidation, coverage, the finding cap, the output format including its change-scoped additions, and the verdict |
 | `interface-review` | Change scope resolution, blast radius from changed files to affected surfaces, and finding classification (`Introduced` / `Regression` / `Pre-existing`) |
+| `show-me` | Concise visual explanations using pseudocode, code-shape sketches, trees, diffs, Mermaid diagrams, and explicitly requested HTML artifacts |
 | `better-accessibility` | Semantic HTML, keyboard and focus behavior, accessible names, forms, assistive technology, and accessibility requirements |
 | `better-layout` | Spatial grouping, alignment, spacing, responsive structure, logical CSS properties, and spatial RTL behavior |
 | `better-writing` | Source wording, terminology, voice, tone, labels, errors, and empty-state copy |
@@ -46,6 +47,6 @@ When a concern crosses domains, keep the rule in the owner above and let other s
 - Match the degree of prescription to the decision: requirements may be unconditional, while design heuristics name the context and escape conditions before giving exact recipe values.
 - Skills instruct agents to match the target project's existing styling system (Tailwind vs. plain CSS vs. CSS-in-JS) rather than impose one.
 - Frontmatter `description` is the discovery surface; when adding or changing a skill's scope, update its trigger keywords accordingly.
-- Skills that own a domain use the `better-*` prefix. A user-invoked review entry point may drop it when a plainer name reads better on the command line, as `interface-review` does.
+- Skills that own a domain use the `better-*` prefix. A user-invoked review or explanation entry point may drop it when a plainer name reads better on the command line, as `interface-review` and `show-me` do.
 - A skill's name appears in three places: its directory, its frontmatter `name`, and `display_name` in its `agents/openai.yaml`. Renaming means changing all three, then `grep`ing for the old name to confirm nothing survived.
 - Prefer counts and lists that cannot go stale. Say "every skill in this repository" rather than a number the next skill invalidates.
